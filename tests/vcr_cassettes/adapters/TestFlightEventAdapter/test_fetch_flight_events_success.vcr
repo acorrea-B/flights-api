@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      host:
+      - mock.apidog.com
+      user-agent:
+      - python-httpx/0.28.1
+    method: GET
+    uri: https://mock.apidog.com/m1/814105-793312-default/flight-events
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA4uuVkrLyUzPKInPK81NSi1SslLydDI0MjZR0lFKSS1ILCopLUqNT84sqQTK+Dq6
+        AIUTi4oyyxJzYIJOoa4oalMSS1JLMnNTgeqNDIwMdQ2NdI0NQ4yMrUwtgUjPwMAgCskQVNVGugaG
+        QBRiaGRlYABEENW1sQDKSmUXpgAAAA==
+    headers:
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 23 Aug 2025 17:26:54 GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-WAF-ACCESS:
+      - '1'
+      X-WAF-CLIENT-IP:
+      - 190.108.79.169
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET,POST,PUT,DELETE,PATCH,HEAD,OPTIONS
+      access-control-allow-origin:
+      - '*'
+      etag:
+      - W/"a6-49CX66cXZIyKBFEX71yBwbCpIig"
+      success:
+      - 'false'
+      vary:
+      - Origin
+      x-powered-by:
+      - Express
+    status:
+      code: 200
+      message: OK
+version: 1
