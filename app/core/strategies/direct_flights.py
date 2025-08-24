@@ -15,6 +15,6 @@ class JourneyDirectFlights(JourneyBuilderStrategy):
             for f in flight_events
             if f.departure_city == flight_filter.origin
             and f.arrival_city == flight_filter.destination
-            and f.departure_date == flight_filter.date_only
+            and f.departure_date == flight_filter.date
             and await is_within_max_duration_1_event(f, ConfigVars.MAX_JOURNEY_HOURS)
         ]

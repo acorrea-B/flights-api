@@ -26,7 +26,7 @@ def create_event(
 class TestJourneyDirectFlights(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.filter = FlightFilterDTO(
-            date=datetime(2024, 9, 12), origin="BUE", destination="MAD"
+            date=datetime(2024, 9, 12).date(), origin="BUE", destination="MAD"
         )
         self.strategy = JourneyDirectFlights()
 
