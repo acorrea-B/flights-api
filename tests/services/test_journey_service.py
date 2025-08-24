@@ -3,7 +3,7 @@ from unittest.mock import patch, AsyncMock
 from datetime import datetime
 from app.services.journey_service import JourneyService
 from app.dtos.flight_filter_dto import FlightFilterDTO
-from app.dtos.fligth_event_dto import FlightEventDTO
+from app.dtos.flight_event_dto import FlightEventDTO
 from tests.commons.test_helper import vcr
 
 

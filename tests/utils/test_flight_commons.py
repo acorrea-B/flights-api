@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime, timedelta
 from app.utils.flight_commons import is_within_max_duration
-from app.dtos.fligth_event_dto import FlightEventDTO
+from app.dtos.flight_event_dto import FlightEventDTO
 
 
 def create_event(departure, arrival) -> FlightEventDTO:

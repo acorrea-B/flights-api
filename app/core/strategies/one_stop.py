@@ -1,6 +1,6 @@
 from typing import List
 from app.core.strategies.base import JourneyBuilderStrategy
-from app.dtos.fligth_event_dto import FlightEventDTO
+from app.dtos.flight_event_dto import FlightEventDTO
 from app.dtos.flight_filter_dto import FlightFilterDTO
 from app.utils.config_vars import ConfigVars
 from app.utils.flight_commons import is_within_max_duration

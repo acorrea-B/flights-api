@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import List
 
 from app.core.strategies.direct_flights import JourneyDirectFlights
-from app.dtos.fligth_event_dto import FlightEventDTO
+from app.dtos.flight_event_dto import FlightEventDTO
 from app.dtos.flight_filter_dto import FlightFilterDTO
 
 

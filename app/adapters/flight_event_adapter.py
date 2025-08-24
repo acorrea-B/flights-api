@@ -3,7 +3,6 @@ import httpx
 from typing import List, Dict, Any, Optional
 from app.utils.config_vars import ConfigVars
 from app.utils.logger import report_error
-from app.utils.config_vars import ConfigVars
 
 class FlightEventAdapter:
     def __init__(self):

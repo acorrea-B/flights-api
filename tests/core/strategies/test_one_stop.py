@@ -2,7 +2,7 @@ import unittest
 from datetime import datetime
 
 from app.core.strategies.one_stop import OneStopJourneyStrategy
-from app.dtos.fligth_event_dto import FlightEventDTO
+from app.dtos.flight_event_dto import FlightEventDTO
 from app.dtos.flight_filter_dto import FlightFilterDTO
 
 

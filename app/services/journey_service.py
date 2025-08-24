@@ -2,7 +2,7 @@ from typing import List
 from app.core.strategies.direct_flights import JourneyDirectFlights
 from app.core.strategies.one_stop import OneStopJourneyStrategy
 from app.adapters.flight_event_adapter import FlightEventAdapter
-from app.dtos.fligth_event_dto import FlightEventDTO
+from app.dtos.flight_event_dto import FlightEventDTO
 from app.dtos.flight_filter_dto import FlightFilterDTO
 from app.utils.logger import report_error
 

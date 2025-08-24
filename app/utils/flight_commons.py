@@ -1,6 +1,6 @@
 from typing import List
 from datetime import datetime
-from app.dtos.fligth_event_dto import FlightEventDTO
+from app.dtos.flight_event_dto import FlightEventDTO
 
 
 async def validate_time(
