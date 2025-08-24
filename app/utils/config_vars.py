@@ -6,7 +6,6 @@ class ConfigVars:
         "FLIGHT_EVENTS_API_URL",
         "https://mock.apidog.com/m1/814105-793312-default/flight-events",
     )
-    MAX_JOURNEY_HOURS_2_EVENTS: int = int(getenv("MAX_JOURNEY_HOURS_2_EVENTS", "24"))
-    MAX_LAYOVER_HOURS_2_EVENTS: int = int(getenv("MAX_LAYOVER_HOURS_2_EVENTS", "4"))
-    MIN_LAYOVER_HOURS: int = int(getenv("MIN_LAYOVER_HOURS", "1"))
+    MAX_JOURNEY_HOURS: int = int(getenv("MAX_JOURNEY_HOURS", "24"))
+    MAX_LAYOVER_HOURS: int = int(getenv("MAX_LAYOVER_HOURS", "4"))
     DEFAULT_API_TIMEOUT: int = int(getenv("DEFAULT_API_TIMEOUT", "10"))

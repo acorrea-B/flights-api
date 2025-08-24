@@ -3,11 +3,13 @@ import httpx
 from typing import List, Dict, Any, Optional
 from app.utils.config_vars import ConfigVars
 from app.utils.logger import report_error
-
+from app.utils.config_vars import ConfigVars
 
 class FlightEventAdapter:
     def __init__(self):
         self.base_url = ConfigVars.FLIGHT_EVENTS_API_URL
+        self.timeout = ConfigVars.DEFAULT_API_TIMEOUT
+
 
     async def fetch_flight_events(self) -> Optional[List[Dict[str, Any]]]:
         try:

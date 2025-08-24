@@ -56,8 +56,10 @@ class TestOneStopJourneyStrategy(unittest.IsolatedAsyncioTestCase):
 
         journeys = await self.strategy.execute([flight1, flight2], self.filter)
         self.assertEqual(len(journeys), 1)
-        self.assertEqual(journeys[0][0].flight_number, "XX1234")
-        self.assertEqual(journeys[0][1].flight_number, "XX2345")
+        self.assertEqual(journeys[0]["connections"], 1)
+        self.assertEqual(len(journeys[0]["path"]), 2)
+        self.assertEqual(journeys[0]["path"][0].flight_number, "XX1234")
+        self.assertEqual(journeys[0]["path"][1].flight_number, "XX2345")
 
     async def test_invalid_due_to_long_layover(self):
         flight1 = create_event(
@@ -211,9 +213,7 @@ class TestOneStopJourneyStrategy(unittest.IsolatedAsyncioTestCase):
             flight_number="F7",
             departure_city="MAD",
             arrival_city="PMI",
-            departure_datetime=self.first_leg.arrival_datetime.replace(
-                hour=23
-            ),  # muy largo
+            departure_datetime=self.first_leg.arrival_datetime.replace(hour=23),
             arrival_datetime=datetime(2024, 9, 13, 1, 0),
         )
         result = await self.strategy.find_next_stopovers(

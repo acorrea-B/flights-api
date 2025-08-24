@@ -22,9 +22,11 @@ class OneStopJourneyStrategy(JourneyBuilderStrategy):
                 for second_leg in second_leg_list:
                     journey = [first_leg, second_leg]
                     if await is_within_max_duration(
-                        journey, ConfigVars.MAX_JOURNEY_HOURS_2_EVENTS
+                        journey, ConfigVars.MAX_JOURNEY_HOURS
                     ):
-                        connections.append(journey)
+                        connections.append(
+                            {"connections": len(journey) - 1, "path": journey}
+                        )
         return connections
 
     async def find_next_stopovers(
@@ -44,6 +46,6 @@ class OneStopJourneyStrategy(JourneyBuilderStrategy):
                     next_stop.departure_datetime - first_leg.arrival_datetime
                 ).total_seconds() / 3600
 
-                if 0 < layover_duration <= ConfigVars.MAX_LAYOVER_HOURS_2_EVENTS:
+                if 0 < layover_duration <= ConfigVars.MAX_LAYOVER_HOURS:
                     valid_connections.append(next_stop)
         return valid_connections

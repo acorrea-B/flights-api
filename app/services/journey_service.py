@@ -4,6 +4,7 @@ from app.core.strategies.one_stop import OneStopJourneyStrategy
 from app.adapters.flight_event_adapter import FlightEventAdapter
 from app.dtos.fligth_event_dto import FlightEventDTO
 from app.dtos.flight_filter_dto import FlightFilterDTO
+from app.utils.logger import report_error
 
 
 class JourneyService:
@@ -23,9 +24,15 @@ class JourneyService:
     async def build_journeys(
         self, flight_filter: FlightFilterDTO
     ) -> List[List[FlightEventDTO]]:
-        flight_events = await self.get_flight_events()
         journeys = []
-        for strategy in self.strategies:
-            result = await strategy.execute(flight_events, flight_filter)
-            journeys.extend(result)
-        return journeys
+        try:
+            flight_events = await self.get_flight_events()
+            for strategy in self.strategies:
+                result = await strategy.execute(flight_events, flight_filter)
+                journeys.extend(
+                    sorted(result, key=lambda x: x["path"][0].departure_datetime)
+                )
+            return journeys
+        except Exception as e:
+            report_error(f"{e} : {flight_filter.__dict__}")
+            return journeys
