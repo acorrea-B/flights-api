@@ -26,7 +26,7 @@ class TestOneStopJourneyStrategy(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.strategy = OneStopJourneyStrategy()
         self.filter = FlightFilterDTO(
-            date=datetime(2024, 9, 12),
+            date=datetime(2024, 9, 12).date(),
             origin="BUE",
             destination="PMI",
         )
