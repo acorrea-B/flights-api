@@ -23,8 +23,8 @@ app/
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
-cd <project-name>
+git clone https://github.com/acorrea-B/flights-api.git
+cd flights-api
 ```
 
 ### 2. Create and activate virtual environment
