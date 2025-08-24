@@ -40,7 +40,7 @@ class TestJourneyService(unittest.IsolatedAsyncioTestCase):
             - There are 3 events on different dates that should be filtered out or layover is greather than 4.
             - There are 2 events that total is 2 journeys direct flights that match the filter and conditions.
             - There are 4 events that total is 2 journeys events one-stop that match the filter and conditions.
-            para  criterio de filtro date=datetime(2024, 9, 13), origin="BUE", destination="MAD"
+            for filter criteria date=datetime(2024, 9, 13), origin="BUE", destination="MAD"
         """
         return [
             create_flight_event_dict(

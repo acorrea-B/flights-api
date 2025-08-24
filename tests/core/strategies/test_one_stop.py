@@ -179,7 +179,7 @@ class TestOneStopJourneyStrategy(unittest.IsolatedAsyncioTestCase):
         wrong_arrival = FlightEventDTO(
             flight_number="F4",
             departure_city="MAD",
-            arrival_city="BCN",  # no coincide con PMI
+            arrival_city="BCN",  # does not match PMI
             departure_datetime=datetime(2024, 9, 12, 14, 0),
             arrival_datetime=datetime(2024, 9, 12, 15, 0),
         )

@@ -8,6 +8,6 @@ class JourneyBuilderStrategy(ABC):
     @abstractmethod
     async def execute(
         self, flight_events: List[FlightEventDTO], flight_filter: FlightFilterDTO
-    ) -> List[List[dict]]:
+    ) -> List[dict]:
         pass
 

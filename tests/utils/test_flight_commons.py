@@ -1,6 +1,10 @@
 import unittest
 from datetime import datetime, timedelta
-from app.utils.flight_commons import is_within_max_duration
+from app.utils.flight_commons import (
+    is_within_max_duration,
+    is_within_max_duration_1_event,
+    validate_time,
+)
 from app.dtos.flight_event_dto import FlightEventDTO
 
 
@@ -57,6 +61,42 @@ class TestIsWithinMaxDuration(unittest.IsolatedAsyncioTestCase):
 
     async def test_empty_event_list(self):
         result = await is_within_max_duration([], max_hours_travel=5)
+        self.assertFalse(result)
+
+    async def test_is_within_max_duration_1_event_valid(self):
+        dep = datetime(2024, 9, 12, 12, 0)
+        arr = dep + timedelta(hours=3)
+        event = create_event(dep, arr)
+        result = await is_within_max_duration_1_event(event, max_hours_travel=4)
+        self.assertTrue(result)
+
+    async def test_is_within_max_duration_1_event_exceeds(self):
+        dep = datetime(2024, 9, 12, 10, 0)
+        arr = dep + timedelta(hours=7)
+        event = create_event(dep, arr)
+        result = await is_within_max_duration_1_event(event, max_hours_travel=6)
+        self.assertFalse(result)
+
+    async def test_is_within_max_duration_1_event_none(self):
+        result = await is_within_max_duration_1_event(None, max_hours_travel=5)
+        self.assertFalse(result)
+
+    async def test_validate_time_within_limit(self):
+        dep = datetime(2024, 9, 12, 10, 0)
+        arr = dep + timedelta(hours=3)
+        result = await validate_time(arrival=arr, departure=dep, max_hours_travel=4)
+        self.assertTrue(result)
+
+    async def test_validate_time_exact_limit(self):
+        dep = datetime(2024, 9, 12, 10, 0)
+        arr = dep + timedelta(hours=5)
+        result = await validate_time(arrival=arr, departure=dep, max_hours_travel=5)
+        self.assertTrue(result)
+
+    async def test_validate_time_exceeds_limit(self):
+        dep = datetime(2024, 9, 12, 10, 0)
+        arr = dep + timedelta(hours=6)
+        result = await validate_time(arrival=arr, departure=dep, max_hours_travel=5)
         self.assertFalse(result)
 
 
