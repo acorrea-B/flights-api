@@ -32,7 +32,7 @@ class OneStopJourneyStrategy(JourneyBuilderStrategy):
     async def find_next_stopovers(
         self,
         first_leg: FlightEventDTO,
-        flight_events: list[FlightEventDTO],
+        flight_events: List[FlightEventDTO],
         destination: str,
     ) -> List[FlightEventDTO]:
         valid_connections = []

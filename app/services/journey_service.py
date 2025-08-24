@@ -15,7 +15,7 @@ class JourneyService:
             OneStopJourneyStrategy(),
         ]
 
-    async def get_flight_events(self) -> list[FlightEventDTO]:
+    async def get_flight_events(self) -> List[FlightEventDTO]:
         raw_events = await self.adapter.fetch_flight_events()
         if not raw_events:
             raise Exception("There are no flight events available at the moment.")
